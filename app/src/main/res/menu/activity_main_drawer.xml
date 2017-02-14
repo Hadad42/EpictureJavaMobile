@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="@string/search_title_menu">
+        <menu>
+            <item
+                android:id="@+id/nav_flickr"
+                android:title="@string/flickr_title_menu" />
+            <item
+                android:id="@+id/nav_imgur"
+                android:title="@string/imgur_title_menu" />
+
+        </menu>
+    </item>
+    <group>
+        <item
+            android:id="@+id/nav_favorite"
+            android:icon="@android:drawable/star_big_on"
+            android:title="@string/favorite_title_menu" />
+    </group>
+
+
+</menu>

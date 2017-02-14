@@ -1,0 +1,44 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.java.demers_j.epicture.SearchFragment">
+
+    <ImageView
+        android:id="@+id/imageViewSearch"
+        android:layout_width="150dp"
+        android:layout_height="70dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/flickr_logo"
+        android:contentDescription="@string/logo_search"
+        android:layout_marginTop="8dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imageViewSearch"
+        android:background="@drawable/my_layout_background"
+        android:orientation="horizontal"
+        android:layout_marginTop="16dp">
+
+        <EditText
+            android:id="@+id/searchEditText"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:inputType="text"
+            android:maxLines="1"
+            android:imeOptions="actionSearch"
+            android:textColor="@color/colorEditText"
+            android:background="@android:color/transparent"
+            android:textCursorDrawable="@drawable/my_cursor_color"/>
+
+        <ImageButton
+            android:id="@+id/buttonSeach"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@android:drawable/ic_menu_search"
+            android:background="@drawable/my_image_background"
+            android:contentDescription="@string/search_button"/>
+    </LinearLayout>
+</RelativeLayout>

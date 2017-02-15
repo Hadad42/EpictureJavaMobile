@@ -9,36 +9,55 @@
         android:layout_width="150dp"
         android:layout_height="70dp"
         android:layout_centerHorizontal="true"
-        android:src="@drawable/flickr_logo"
+        android:layout_marginTop="8dp"
         android:contentDescription="@string/logo_search"
-        android:layout_marginTop="8dp" />
+        android:src="@drawable/flickr_logo" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/linearLayoutSearch"
         android:layout_below="@id/imageViewSearch"
+        android:layout_marginTop="16dp"
         android:background="@drawable/my_layout_background"
-        android:orientation="horizontal"
-        android:layout_marginTop="16dp">
+        android:orientation="horizontal">
 
         <EditText
             android:id="@+id/searchEditText"
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:imeOptions="actionSearch"
             android:inputType="text"
             android:maxLines="1"
-            android:imeOptions="actionSearch"
             android:textColor="@color/colorEditText"
-            android:background="@android:color/transparent"
-            android:textCursorDrawable="@drawable/my_cursor_color"/>
+            android:textCursorDrawable="@drawable/my_cursor_color" />
 
         <ImageButton
-            android:id="@+id/buttonSeach"
+            android:id="@+id/buttonSearch"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:src="@android:drawable/ic_menu_search"
             android:background="@drawable/my_image_background"
-            android:contentDescription="@string/search_button"/>
+            android:contentDescription="@string/search_button"
+            android:src="@android:drawable/ic_menu_search" />
     </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="16dp"
+        android:layout_below="@id/linearLayoutSearch"
+        android:scrollbars="vertical" />
+
+ <!--   <GridView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/gridView"
+        android:layout_below="@id/linearLayoutSearch"
+        android:numColumns="auto_fit"
+        android:horizontalSpacing="8dp"
+        android:verticalSpacing="8dp"
+        android:layout_marginTop="16dp"/>-->
 </RelativeLayout>

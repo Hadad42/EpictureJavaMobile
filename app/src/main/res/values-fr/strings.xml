@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="action_settings">Réglages</string>
+    <string name="action_sign_in">Se connecter</string>
+    <string name="app_logo">logo de l\'application</string>
+    <string name="favorite_title_menu">Favoris</string>
+    <string name="language">Langue</string>
+    <string name="login">S\'identifier</string>
+    <string name="logo_search">Logo du moteur de recherche</string>
+    <string name="password">Mot de passe</string>
+    <string name="search_button">Bouton rechercher</string>
+    <string name="search_title_menu">Rechercher</string>
+    <string name="username">Identifiant</string>
+    <string name="english">Anglais</string>
+    <string name="french">Français</string>
+    <string name="action_sort_by_name">Trie par nom</string>
+    <string name="action_sort_by_date">Trie par date</string>
+</resources>

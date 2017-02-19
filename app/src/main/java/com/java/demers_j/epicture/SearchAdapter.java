@@ -36,12 +36,11 @@ class SearchAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        ViewHolder viewHolder = null;
+        ViewHolder viewHolder;
         if (position <= 0 && position > imageList.size()) {
             if (convertView == null) {
                 convertView = mInflater.inflate(R.layout.item_image, parent, false);
                 viewHolder = new ViewHolder(convertView);
-                // convertView.setTag(viewHolder);
             } else {
                 convertView = mInflater.inflate(R.layout.item_image, parent, false);
                 viewHolder = new ViewHolder(convertView);

@@ -73,6 +73,10 @@ public class SearchFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_search, container, false);
 
+        MainActivity activity = (MainActivity) getActivity();
+        if (activity.getMenu() != null)
+            activity.getMenuInflater().inflate(R.menu.menu_search, activity.getMenu());
+
         editText = (EditText) view.findViewById(R.id.searchEditText);
 
         recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
@@ -83,7 +87,6 @@ public class SearchFragment extends Fragment {
 
 
         imageLogo = (ImageView) view.findViewById(R.id.imageViewSearch);
-        MainActivity activity = (MainActivity) getActivity();
         if (searchEngine == R.integer.Flickr) {
             imageLogo.setImageResource(R.drawable.flickr_logo);
             if (activity.getSupportActionBar() != null)
@@ -131,7 +134,6 @@ public class SearchFragment extends Fragment {
         if (searchEngine == R.integer.Flickr && data.getUserFlickr() != null && data.getUserFlickrConnected()) {
             if (str.length() > 0) {
                 Toast.makeText(getContext(), str, Toast.LENGTH_LONG).show();
-
 
                 List<String> tmp = new ArrayList<>();
                 tmp.add("0");

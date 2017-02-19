@@ -1,5 +1,6 @@
 package com.java.demers_j.epicture;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -11,9 +12,19 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    private Menu menu;
+    private boolean isShown = false;
+
+    public Menu getMenu() {
+        return menu;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,12 +33,26 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close) {
+            @Override
+            public void onDrawerSlide(View drawerView, float slideOffset) {
+                if (!isShown) {
+                    try {
+                        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                        if (getCurrentFocus() != null)
+                            imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+                isShown = !isShown;
+            }
+        };
         drawer.addDrawerListener(toggle);
         toggle.syncState();
+
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
@@ -48,23 +73,24 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-
+        getMenuInflater().inflate(R.menu.menu_search, menu);
+        if (this.menu == null)
+            this.menu = menu;
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        switch (id) {
+            case R.id.sort_by_date:
+                Toast.makeText(MainActivity.this, "Sort By Date", Toast.LENGTH_SHORT).show();
+                return true;
+            case R.id.sort_by_name:
+                Toast.makeText(MainActivity.this, "Sort By Name", Toast.LENGTH_SHORT).show();
+                return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 
@@ -81,6 +107,10 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_favorite) {
 
+        } else if (id == R.id.nav_settings) {
+            SettingsFragment settingsFragment = new SettingsFragment();
+            FragmentManager manager = getSupportFragmentManager();
+            manager.beginTransaction().replace(R.id.relativeLayout_for_fragment, settingsFragment, settingsFragment.getTag()).commit();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

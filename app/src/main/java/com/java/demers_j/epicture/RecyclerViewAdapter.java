@@ -8,12 +8,12 @@ import android.view.ViewGroup;
 
 import java.util.List;
 
-class RecyclerViewAdapter extends RecyclerView.Adapter<ViewHolders> {
+public class RecyclerViewAdapter extends RecyclerView.Adapter<ViewHolders> {
 
     private List<String> itemList;
     private Context context;
 
-    RecyclerViewAdapter(Context context, List<String> itemList) {
+    public RecyclerViewAdapter(Context context, List<String> itemList) {
         this.itemList = itemList;
         this.context = context;
     }
@@ -22,12 +22,13 @@ class RecyclerViewAdapter extends RecyclerView.Adapter<ViewHolders> {
     public ViewHolders onCreateViewHolder(ViewGroup parent, int viewType) {
 
         View layoutView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_image, parent, false);
-        return new ViewHolders(layoutView);
+
+        return new ViewHolders(layoutView, context);
     }
 
     @Override
     public void onBindViewHolder(ViewHolders holder, int position) {
-        if (itemList.get(position).equals("7"))
+        if (itemList.get(position).equals("7") || itemList.get(position).equals("14"))
             holder.countryPhoto.setImageResource(R.drawable.flickr_logo);
         else
             holder.countryPhoto.setImageResource(R.drawable.imgur_logo);

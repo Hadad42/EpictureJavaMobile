@@ -50,6 +50,9 @@ class SearchAdapter extends BaseAdapter {
                 viewHolder.imageView.setImageResource(R.drawable.flickr_logo);
             else
                 viewHolder.imageView.setImageResource(R.drawable.imgur_logo);
+
+            
+
             return convertView;
         }
         return null;

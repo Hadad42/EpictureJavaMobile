@@ -22,7 +22,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.java.demers_j.epicture.Entity.Data;
+import com.java.demers_j.epicture.entity.Data;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -74,9 +74,10 @@ public class SearchFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_search, container, false);
 
         MainActivity activity = (MainActivity) getActivity();
-        if (activity.getMenu() != null)
+        if (activity.getMenu() != null) {
+            activity.getMenu().clear();
             activity.getMenuInflater().inflate(R.menu.menu_search, activity.getMenu());
-
+        }
         editText = (EditText) view.findViewById(R.id.searchEditText);
 
         recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
@@ -152,8 +153,58 @@ public class SearchFragment extends Fragment {
                 tmp.add("13");
                 tmp.add("14");
                 tmp.add("15");
+                tmp.add("16");
+                tmp.add("17");
+                tmp.add("18");
+                tmp.add("19");
+                tmp.add("20");
+                tmp.add("7");
+                tmp.add("7");
+                tmp.add("7");
+                tmp.add("7");
+                tmp.add("7");
+                tmp.add("7");
+                tmp.add("7");
+                tmp.add("7");
+                tmp.add("7");
+                tmp.add("20");
+                tmp.add("20");
+                tmp.add("20");
+                tmp.add("20");tmp.add("20");
+                tmp.add("20");tmp.add("20");tmp.add("20");tmp.add("20");tmp.add("20");tmp.add("20");tmp.add("20");tmp.add("20");tmp.add("20");tmp.add("20");tmp.add("20");tmp.add("20");tmp.add("20");tmp.add("20");tmp.add("20");tmp.add("20");tmp.add("20");tmp.add("20");tmp.add("20");tmp.add("20");tmp.add("20");tmp.add("20");tmp.add("20");tmp.add("20");tmp.add("20");tmp.add("20");tmp.add("20");tmp.add("20");tmp.add("20");
+                tmp.add("20");tmp.add("20");tmp.add("20");tmp.add("20");tmp.add("20");tmp.add("20");tmp.add("20");tmp.add("20");tmp.add("20");
+                tmp.add("7");
+                tmp.add("7");
+                tmp.add("7");
+                tmp.add("7");
+                tmp.add("7");
+                tmp.add("7");
+                tmp.add("7");
+                tmp.add("7");
+                tmp.add("7");tmp.add("7");
+                tmp.add("7");
+                tmp.add("7");
+                tmp.add("7");
+                tmp.add("7");
+                tmp.add("7");
+                tmp.add("7");
+                tmp.add("7");
+                tmp.add("7");tmp.add("7");
+                tmp.add("7");
+                tmp.add("7");
+                tmp.add("7");
+                tmp.add("7");
+                tmp.add("7");
+                tmp.add("7");
+                tmp.add("7");
+                tmp.add("7");tmp.add("20");tmp.add("20");tmp.add("20");tmp.add("20");tmp.add("20");tmp.add("20");tmp.add("20");tmp.add("20");tmp.add("20");tmp.add("20");tmp.add("20");tmp.add("20");tmp.add("20");tmp.add("20");tmp.add("20");tmp.add("20");tmp.add("20");tmp.add("20");tmp.add("20");tmp.add("20");tmp.add("20");tmp.add("20");tmp.add("20");tmp.add("20");tmp.add("20");tmp.add("20");tmp.add("20");tmp.add("20");tmp.add("20");
+                tmp.add("20");tmp.add("20");tmp.add("20");tmp.add("20");tmp.add("20");tmp.add("20");tmp.add("20");tmp.add("20");tmp.add("20");
+                tmp.add("20");tmp.add("20");tmp.add("20");tmp.add("20");tmp.add("20");tmp.add("20");tmp.add("20");tmp.add("20");tmp.add("20");tmp.add("20");tmp.add("20");tmp.add("20");tmp.add("20");tmp.add("20");tmp.add("20");tmp.add("20");tmp.add("20");tmp.add("20");tmp.add("20");tmp.add("20");tmp.add("20");tmp.add("20");tmp.add("20");tmp.add("20");tmp.add("20");tmp.add("20");tmp.add("20");tmp.add("20");tmp.add("20");
+                tmp.add("20");tmp.add("20");tmp.add("20");tmp.add("20");tmp.add("20");tmp.add("20");tmp.add("20");tmp.add("20");tmp.add("20");
+
                 RecyclerViewAdapter rcAdapter = new RecyclerViewAdapter(getContext(), tmp);
                 recyclerView.setAdapter(rcAdapter);
+
             }
         } else if (searchEngine == R.integer.Imgur && data.getUserImgur() != null && data.getUserImgurConnected()) {
             if (str.length() > 0) {

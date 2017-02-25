@@ -16,7 +16,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
-import com.java.demers_j.epicture.Entity.Settings;
+import com.java.demers_j.epicture.entity.Settings;
 
 import java.util.Locale;
 
@@ -37,15 +37,17 @@ public class SettingsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_settings, container, false);
-        MainActivity activity = (MainActivity) getActivity();
+        final MainActivity activity = (MainActivity) getActivity();
 
         if (activity.getMenu() != null) {
             activity.getMenu().clear();
         }
-        if (activity.getSupportActionBar() != null)
-            activity.getSupportActionBar().setTitle(getString(R.string.action_settings));
         if (settings == null)
             settings = new Settings(getContext());
+        if (activity.getSupportActionBar() != null) {
+            activity.getSupportActionBar().setTitle(getString(R.string.action_settings));
+            activity.getSupportActionBar().show();
+        }
         final Spinner spinnerLanguage = (Spinner) view.findViewById(R.id.languageSpinner);
         ArrayAdapter spinnerArrayAdapter2 = ArrayAdapter.createFromResource(getContext(), R.array.language, android.R.layout.simple_spinner_item);
         spinnerArrayAdapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item); // The drop down view
@@ -74,6 +76,8 @@ public class SettingsFragment extends Fragment {
                     conf.locale = new Locale(settings.getLanguage());
                     res.updateConfiguration(conf, dm);
                 }
+                getActivity().onConfigurationChanged(getActivity().getResources().getConfiguration());
+
                 settings.saveSettingsToPrefs();
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
                 ft.detach(SettingsFragment.this).attach(SettingsFragment.this).commit();

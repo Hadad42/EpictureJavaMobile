@@ -15,4 +15,7 @@
     <string name="french">Français</string>
     <string name="action_sort_by_name">Trie par nom</string>
     <string name="action_sort_by_date">Trie par date</string>
+    <string name="download">Télécharger le fichier</string>
+    <string name="add_to_favorite">Ajouter aux favoris</string>
+    <string name="action_profile">Profile</string>
 </resources>
